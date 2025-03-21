@@ -54,12 +54,12 @@ export default function ZielgruppePage() {
 
   // 🔹 **Allgemeiner Handler für Checkboxen**
   const handleCheckboxChange = (field: keyof ZielgruppeFormData, value: string) => {
-    setFormData(prev => ({
-      ...prev,
-      [field]: prev[field].includes(value)
-        ? prev[field].filter(item => item !== value)
-        : [...prev[field], value]
-    }));
+setFormData(prev => ({
+  ...prev,
+  [field]: (prev[field] as string[]).includes(value) 
+    ? (prev[field] as string[]).filter(item => item !== value) 
+    : [...(prev[field] as string[]), value]
+}));
   };
 
   // 🔹 **Altersbereich ändern**
